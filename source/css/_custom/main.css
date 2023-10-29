@@ -6308,8 +6308,8 @@ img.footer_mini_logo:hover {
 }
 
 #menus>div.menus_items>div>a {
-  letter-spacing: 0.3rem;
-  padding-left: 0.7rem;
+  letter-spacing: 0.05rem;
+  padding-left: 0.5rem;
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;
