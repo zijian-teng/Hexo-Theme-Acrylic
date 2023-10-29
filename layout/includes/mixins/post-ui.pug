@@ -17,10 +17,10 @@ mixin postUI(posts)
             if (theme.post_meta.page.categories && article.categories.data.length > 0)
               each item, index in article.categories.data
                 span.original #[=item.name]
-            if firstpost != 1
-              span.lastestpost 最新
-              - var firstpost = 1
-            a.unvisited-post(href=url_for(link) title=`${title}` data-pjax-state) 未读
+            //- if firstpost != 1
+            //-   span.lastestpost 最新
+            //-   - var firstpost = 1
+            //- a.unvisited-post(href=url_for(link) title=`${title}` data-pjax-state) 未读
           a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
           if (is_home() && (article.top || article.sticky > 0))
@@ -48,7 +48,7 @@ mixin postUI(posts)
                 - let date_icon = data_type_updated ? 'fas fa-history' :'far fa-calendar-alt'
                 i(class=date_icon)
                 time(datetime=date_xml(article[date_type]) title=date_title + ' ' + full_date(article[date_type]))=date(article[date_type], config.date_format)
-          
+
           mixin countBlockInIndex
             - needLoadCountJs = true
             span.article-meta(onclick='scrollTo("post-comment")')
