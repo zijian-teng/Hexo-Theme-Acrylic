@@ -1,5 +1,6 @@
 - let tocNumber = page.toc_number !== undefined ? page.toc_number : false
-- let tocExpand = page.toc_expand !== undefined ? page.toc_expand : false
+//- - let tocExpand = page.toc_expand !== undefined ? page.toc_expand : false
+- let tocExpand = true
 - let tocExpandClass = tocExpand ? 'is-expand' : ''
 
 #card-toc.card-widget
@@ -10,6 +11,5 @@
 
   if (page.encrypt == true)
     .toc-content.toc-div-class(class=tocExpandClass style="display:none")!=toc(page.origin, {list_number: tocNumber})
-  else 
+  else
     .toc-content(class=tocExpandClass)!=toc(page.content, {list_number: tocNumber})
-      

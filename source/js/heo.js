@@ -50,40 +50,40 @@ var heo = {
             document.querySelector("#category-bar") && document.getElementById("category-bar-home").classList.add("select");
         else {
             if (/\/categories\/.*?\//.test(e)) {
-                var t = e.split("/")[2];
+                var t = e.split("/").slice(-2)[0];
                 document.querySelector("#category-bar") && document.getElementById(t).classList.add("select")
             }
         }
     },
-    addFriendLinksInFooter: function() {
-        fetch("/zhheo/friendlink.json").then((e=>e.json())).then((e=>{
-            var t = []
-              , o = -1;
-            for (a=1;a<5;a++) {
-                const i = e.link_list;
-                for (let n = 0; n < Math.min(i.length, 1); n++) {
-                    let n = Math.floor(Math.random() * i.length);
-                    for (; n === o && i.length > 1; )
-                        n = Math.floor(Math.random() * i.length);
-                    o = n,
-                    t.push({
-                        name: i[n].name,
-                        link: i[n].link
-                    }),
-                    i.splice(n, 1)
-                }
-            }
-            t.pop();
-            var n = "";
-            for (let e = 0; e < t.length; ++e) {
-                var a = t[e];
-                n += `<a class='footer-item' href='${a.link}'  target="_blank" rel="noopener nofollow">${a.name}</a>`
-            }
-            n += "<a class='footer-item' href='/link/'>更多</a>",
-            document.getElementById("friend-links-in-footer").innerHTML = n
-        }
-        ))
-    },
+    // addFriendLinksInFooter: function() {
+    //     fetch("/zhheo/friendlink.json").then((e=>e.json())).then((e=>{
+    //         var t = []
+    //           , o = -1;
+    //         for (a=1;a<5;a++) {
+    //             const i = e.link_list;
+    //             for (let n = 0; n < Math.min(i.length, 1); n++) {
+    //                 let n = Math.floor(Math.random() * i.length);
+    //                 for (; n === o && i.length > 1; )
+    //                     n = Math.floor(Math.random() * i.length);
+    //                 o = n,
+    //                 t.push({
+    //                     name: i[n].name,
+    //                     link: i[n].link
+    //                 }),
+    //                 i.splice(n, 1)
+    //             }
+    //         }
+    //         t.pop();
+    //         var n = "";
+    //         for (let e = 0; e < t.length; ++e) {
+    //             var a = t[e];
+    //             n += `<a class='footer-item' href='${a.link}'  target="_blank" rel="noopener nofollow">${a.name}</a>`
+    //         }
+    //         n += "<a class='footer-item' href='/link/'>更多</a>",
+    //         document.getElementById("friend-links-in-footer").innerHTML = n
+    //     }
+    //     ))
+    // },
     stopImgRightDrag: function() {
         $("img").on("dragstart", (function() {
             return !1
@@ -170,16 +170,16 @@ var heo = {
         localStorage.removeItem("commentBarrageSwitch"))),
         rm.hideRightMenu()
     },
-    hidecookie: function() {
-        heo_cookiesTime = setTimeout((()=>{
-            document.getElementById("cookies-window").classList.add("cw-hide"),
-            setTimeout((()=>{
-                $("#cookies-window").hide()
-            }
-            ), 1e3)
-        }
-        ), 3e3)
-    },
+    // hidecookie: function() {
+    //     heo_cookiesTime = setTimeout((()=>{
+    //         document.getElementById("cookies-window").classList.add("cw-hide"),
+    //         setTimeout((()=>{
+    //             $("#cookies-window").hide()
+    //         }
+    //         ), 1e3)
+    //     }
+    //     ), 3e3)
+    // },
     hideTodayCard: function() {
         document.getElementById("todayCard") && document.getElementById("todayCard").classList.add("hide")
     },
@@ -358,23 +358,23 @@ var heo = {
         t.focus(),
         t.setSelectionRange(-1, -1)
     },
-    addPowerLinksInPostRightSide: async function() {
-        const e = document.getElementById("power-star-image")
-          , t = document.getElementById("power-star")
-          , o = document.getElementById("power-star-title")
-          , n = document.getElementById("power-star-desc");
-        if (t && e && o && n)
-            try {
-                const a = await fetch("/zhheo/powerlink.json")
-                  , l = await a.json()
-                  , i = heo.getRandomInt(0, l[0].link_list.length)
-                  , c = l[0].link_list[i];
-                e.style.backgroundImage = `url(${c.avatar})`,
-                t.href = c.link,
-                o.innerText = c.name,
-                n.innerText = c.descr
-            } catch (e) {}
-    },
+    // addPowerLinksInPostRightSide: async function() {
+    //     const e = document.getElementById("power-star-image")
+    //       , t = document.getElementById("power-star")
+    //       , o = document.getElementById("power-star-title")
+    //       , n = document.getElementById("power-star-desc");
+    //     if (t && e && o && n)
+    //         try {
+    //             const a = await fetch("/zhheo/powerlink.json")
+    //               , l = await a.json()
+    //               , i = heo.getRandomInt(0, l[0].link_list.length)
+    //               , c = l[0].link_list[i];
+    //             e.style.backgroundImage = `url(${c.avatar})`,
+    //             t.href = c.link,
+    //             o.innerText = c.name,
+    //             n.innerText = c.descr
+    //         } catch (e) {}
+    // },
     getRandomInt: function(e, t) {
         return Math.floor(Math.random() * (t - e)) + e
     },

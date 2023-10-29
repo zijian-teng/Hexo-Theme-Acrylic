@@ -2,14 +2,14 @@
 if theme.equipment.enable
   .author-content.author-content-item.essayPage.single
     .card-content
-      .author-content-item-tips 好物
+      .author-content-item-tips 我的装备
       span.author-content-item-title=equipment.descr
-      .content-bottom
-        .tips=equipment.tip
-      .banner-button-group
-        a.banner-button(onclick=`pjax.loadUrl("${equipment.link}")`)
-          i(class=`${equipment.icon}`)
-          span.banner-button-text=equipment.text
+      //- .content-bottom
+      //-   .tips=equipment.tip
+      //- .banner-button-group
+      //-   a.banner-button(onclick=`pjax.loadUrl("${equipment.link}")`)
+      //-     i(class=`${equipment.icon}`)
+      //-     span.banner-button-text=equipment.text
   #equipment
     if site.data.equipment
       each i in site.data.equipment

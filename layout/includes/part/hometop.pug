@@ -25,8 +25,8 @@
           #banners
             if theme.hometop.banner.class == "people"
               canvas#peoplecanvas
-                script(src="https://cdn.cbd.int/cdn/expire-1-M/gsap/3.9.1/gsap.min.js") 
-                script(src="/lib/people.js") 
+                script(src="https://cdn.cbd.int/cdn/expire-1-M/gsap/3.9.1/gsap.min.js")
+                script(src="/lib/people.js")
             if theme.hometop.banner.class == "creativity"
               .banners-title
                 .banners-title-big=theme.hometop.banner.title_up
@@ -75,7 +75,7 @@
               .recent-post-item
                 .post_cover.left_radius
                   a(href=url_for(link), title=`${article.title}`, data-pjax-state)
-                    span.recent-post-top-text(onclick=`pjax.loadUrl("` + article.link + `");`) 荐 
+                    span.recent-post-top-text(onclick=`pjax.loadUrl("` + article.link + `");`) 荐
                     img.post_bg.entered.loaded(src=url_for(post_cover) alt=title)
                 .recent-post-info(onclick=`pjax.loadUrl("` + article.link + `");`)
                   a.article-title(href=url_for(link), title=`${article.title}`, data-pjax-state)=article.title
@@ -88,7 +88,7 @@
               .recent-post-item
                 .post_cover.left_radius
                   a(href=url_for(link), title=`${article.title}`, data-pjax-state)
-                    span.recent-post-top-text(onclick=`pjax.loadUrl("` + article.link + `");`) 荐 
+                    span.recent-post-top-text(onclick=`pjax.loadUrl("` + article.link + `");`) 荐
                     img.post_bg.entered.loaded(src=url_for(post_cover) alt=title)
                 .recent-post-info(onclick=`pjax.loadUrl("` + article.link + `");`)
                   a.article-title(href=url_for(link), title=`${article.title}`, data-pjax-state)=article.title

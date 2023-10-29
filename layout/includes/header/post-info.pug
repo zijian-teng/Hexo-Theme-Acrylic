@@ -4,7 +4,7 @@
     .meta-firstline
       if page.cc
         a.post-meta-original(title='该文章为转载文章，注意版权协议', href=`${theme.copyright.link}`, data-pjax-state) #[=page.cc]
-      else 
+      else
         a.post-meta-original(title='该文章为原创文章，注意版权协议', href=`${theme.copyright.link}`, data-pjax-state) 原创
       if (theme.post_meta.post.categories && page.categories.data.length > 0)
         each item, index in page.categories.data
@@ -21,14 +21,14 @@
     .meta-secondline
       - let postWordcount = theme.wordcount.enable && (theme.wordcount.post_wordcount || theme.wordcount.min2read)
       if (postWordcount)
-        span.post-meta-separator 
+        span.post-meta-separator
         span.post-meta-wordcount
           if theme.wordcount.post_wordcount
             i.far.fa-file-word.fa-fw.post-meta-icon
             span.post-meta-label= _p('post.wordcount') + ':'
             span.word-count= wordcount(page.content)
             if theme.wordcount.min2read
-              span.post-meta-separator 
+              span.post-meta-separator
           if theme.wordcount.min2read
             i.far.fa-clock.fa-fw.post-meta-icon
             span.post-meta-label= _p('post.min2read') + ':'
@@ -38,7 +38,7 @@
         if (theme.post_meta.post.date_type === 'both')
           i.fa-fw.post-meta-icon.fas.fa-calendar
           time.post-meta-date-created(datetime=date_xml(page.date) title=_p('post.created') + ' ' + full_date(page.date))=date(page.date, config.date_format)
-          span.post-meta-separator 
+          span.post-meta-separator
           i.fas.fa-history.fa-fw.post-meta-icon
           time.post-meta-date-updated(datetime=date_xml(page.updated) title=_p('post.updated') + ' ' + full_date(page.updated))=date(page.updated, config.date_format)
         else
@@ -49,15 +49,15 @@
           i.fa-fw.post-meta-icon(class=date_icon)
           span.post-meta-label= date_title
       span.post-meta-wechat(title='该文章在博客首发')
-        i.fas.fa-compass.post-meta-icon
-        | 博客独享
+        i.fas.fa-user.post-meta-icon
+        | 滕子健
       span.post-meta-position(title=`作者IP属地为${theme.post_meta.location}`)
         i.fas.fa-location-dot.post-meta-icon
         | #[=theme.post_meta.location]
-      span.post-meta-pv(data-flag-title='热度')
-        i.fab.fa-hotjar.fa-fw.post-meta-icon
-        span.post-meta-label 热度:
-        span#busuanzi_value_page_pv
+      //- span.post-meta-pv(data-flag-title='热度')
+      //-   i.fab.fa-hotjar.fa-fw.post-meta-icon
+      //-   span.post-meta-label 热度:
+      //-   span#busuanzi_value_page_pv
       if comments.count && !comments.lazyload && page.comments !== false && comments.use
         - var whichCount = comments.use[0]
 
@@ -67,7 +67,7 @@
             span.post-meta-label= _p('post.comments') + ':'
             if block
               block
-        
+
         case whichCount
           when 'Waline'
             +countBlock

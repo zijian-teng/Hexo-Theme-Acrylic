@@ -8,12 +8,14 @@ hexo.extend.helper.register('getarray_bar', function (types) {
     hexo.locals.get('categories').map(function (category) {
       categoryArr.push({ name: category.name, value: category.length })
     })
-    categoryArr.sort((a, b) => { return b.value - a.value })
+    // 不注释掉这一行，首页和分类页的分类顺序不同
+    // categoryArr.sort((a, b) => { return b.value - a.value })
     let strCategoriesBar = ``
     for (let i = 0; i < categories.length; i++) {
+      var pathed_id = categoryArr[i].name.replace(/[+]/g,'').replace(/ /g,'-')
       strTemp=`
-      <div class="category-bar-item" id="${categoryArr[i].name}">
-      <a href="/categories/${categoryArr[i].name}/">${categoryArr[i].name}</a>
+      <div class="category-bar-item" id="${pathed_id}">
+      <a href="/categories/${pathed_id}/">${categoryArr[i].name}</a>
       </div>`
       strCategoriesBar+=strTemp
     }
@@ -28,9 +30,10 @@ hexo.extend.helper.register('getarray_bar', function (types) {
     tagArr.sort((a, b) => { return b.value - a.value })
     let strTagsBar = ``
     for (let i = 0; i < tags.length; i++) {
+      var pathed_id = tagArr[i].name.replace(/[+]/g,'').replace(/ /g,'-')
       strTemp=`
-      <div class="category-bar-item" id="${tagArr[i].name}">
-      <a href="/tags/${tagArr[i].name}/">${tagArr[i].name}</a>
+      <div class="category-bar-item" id="${pathed_id}">
+      <a href="/tags/${pathed_id}/">${tagArr[i].name}</a>
       </div>`
       strTagsBar+=strTemp
     }

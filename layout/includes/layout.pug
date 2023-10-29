@@ -13,7 +13,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
     #web_bg
     include ./part/console.pug
     !=partial('includes/part/sidebar', {}, {cache: true})
-    include ./part/keyboard.pug
+    //- include ./part/keyboard.pug
     include ./part/music.pug
 
     if page.type !== '404'
@@ -38,5 +38,6 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
     include ./part/rightside.pug
     !=partial('includes/third-party/search/index', {}, {cache: true})
+    // 右键菜单
     !=partial('includes/part/rightmenu',{}, {cache:true})
     include ./additional-js.pug

@@ -301,10 +301,10 @@ function initBlog() {
     heo.sayhi(),
     heo.addTag(),
     heo.stopImgRightDrag(),
-    heo.addFriendLinksInFooter(),
-    heo.addPowerLinksInPostRightSide(),
+    // heo.addFriendLinksInFooter(),
+    // heo.addPowerLinksInPostRightSide(),
     heo.qrcodeCreate(),
-    heo.hidecookie(),
+    // heo.hidecookie(),
     heo.onlyHome(),
     heo.addNavBackgroundInit(),
     heo.initIndexEssay(),
@@ -377,10 +377,10 @@ $("textarea").focusout((function() {
     heo_intype = !1
 }
 )),
-window.onfocus = function() {
-    document.querySelector("#keyboard-tips").classList.remove("show")
-}
-,
+// window.onfocus = function() {
+//     document.querySelector("#keyboard-tips").classList.remove("show")
+// }
+// ,
 document.addEventListener("pjax:click", (function() {
     console.clear(),
     Pace.restart(),

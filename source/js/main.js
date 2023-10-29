@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }else {
           $this.wrap(`<a href="${lazyloadSrc}" data-fancybox="images" data-caption="${dataCaption}" class="fancybox" data-srcset="${lazyloadSrc} 1600w"></a>`)
         }
-        
+
       })
 
       $().fancybox({
@@ -365,10 +365,10 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
         $header.classList.add('nav-fixed')
-        $cookies_window.classList.add('cw-hide')
-        if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
-          $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
-        }
+        // $cookies_window.classList.add('cw-hide')
+        // if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
+        //   $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
+        // }
       } else {
         if (currentTop === 0) {
           $header.classList.remove('nav-fixed', 'nav-visible')
