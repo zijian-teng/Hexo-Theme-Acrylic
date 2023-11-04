@@ -7,13 +7,12 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
   head
     include ./head.pug
   body
-    if theme.loading
-      !=partial('includes/loading/loading.pug', {}, {cache: true})
+    //- if theme.loading
+    //-   !=partial('includes/loading/loading.pug', {}, {cache: true})
 
     #web_bg
     include ./part/console.pug
     !=partial('includes/part/sidebar', {}, {cache: true})
-    //- include ./part/keyboard.pug
     include ./part/music.pug
 
     if page.type !== '404'

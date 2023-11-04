@@ -6,5 +6,5 @@ block content
     #tag-page-tags
       !=pagecloud({source: site.tags})
     #recent-posts(class="recent-posts category_ui")
-      //- +articleSort(page.posts)
+      +postUI(page.posts)
       include includes/part/pagination.pug

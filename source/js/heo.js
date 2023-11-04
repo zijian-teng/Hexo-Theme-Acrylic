@@ -213,15 +213,15 @@ var heo = {
         }
         ))
     },
-    showLoading: function() {
-        document.querySelector("#loading-box").classList.remove("loaded");
-        let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
-        heo.changeThemeColor(e)
-    },
-    hideLoading: function() {
-        document.querySelector("#loading-box").classList.add("loaded")
-        // heoGPT.aiExplanation()
-    },
+    // showLoading: function() {
+    //     document.querySelector("#loading-box").classList.remove("loaded");
+    //     let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
+    //     heo.changeThemeColor(e)
+    // },
+    // hideLoading: function() {
+    //     document.querySelector("#loading-box").classList.add("loaded")
+    //     // heoGPT.aiExplanation()
+    // },
     musicToggle: function() {
         heo_musicPlaying ? (document.querySelector("#nav-music").classList.remove("playing"),
         document.getElementById("menu-music-toggle").innerHTML = '<i class="heofont icon-play-fill"></i><span>播放音乐</span>',

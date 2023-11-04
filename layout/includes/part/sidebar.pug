@@ -1,13 +1,13 @@
-- var nav = theme.nav 
+- var nav = theme.nav
 - var sidebar = theme.sidebar
 #sidebar
   #menu-mask
   #sidebar-menus
     span.sidebar-menu-item-title 功能
     .sidebar-menu-item
-      a.darkmode_switchbutton.menu-child(onclick='rm.switchDarkMode()' title='显示模式切换' href='javascript:void(0);' rel='external nofollow' data-pjax-state='')
-        i.fas.fa-moon(style='font-size: 1rem;')
-        span 显示模式
+      //- a.darkmode_switchbutton.menu-child(onclick='rm.switchDarkMode()' title='显示模式切换' href='javascript:void(0);' rel='external nofollow' data-pjax-state='')
+      //-   i.fas.fa-moon(style='font-size: 1rem;')
+      //-   span 显示模式
     if sidebar.list_group
       .back-menu-list-groups
         each item in nav.left_groups.group
@@ -23,7 +23,7 @@
                     a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
                       img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
                       span.back-menu-item-text=i.text
-                  else 
+                  else
                     a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
                       img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
                       span.back-menu-item-text=i.text

@@ -1281,11 +1281,11 @@ blockquote footer cite::before {
   }
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .layout>div:first-child:not(.recent-posts) {
     padding: 1.8rem 0.7rem !important;
   }
-}
+} */
 
 .layout>div:first-child {
   width: 75%;
@@ -8197,7 +8197,7 @@ div#banners {
   min-width: 200px;
 }
 
-.layout>div:first-child:not(.recent-posts) {
+/* .layout>div:first-child:not(.recent-posts) {
     box-shadow: var(--heo-shadow-border);
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -8207,7 +8207,7 @@ div#banners {
     align-self: flex-start;
     animation: slide-in .6s .1s backwards
 }
-
+ */
 .categoryGroup .categoryItem:nth-child(3) {
   display: none;
 }
@@ -9123,11 +9123,11 @@ span.recent-post-top-text {
   -webkit-box-align: center;
   align-items: center;
   transition: all 0.3s ease 0s;
+  margin-bottom: 1rem;
 }
 
 #recent-posts>.recent-post-item:not(:first-child) {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  /* margin-top: 0.5rem; */
   position: relative;
   overflow: hidden;
   margin-top: 1rem;
@@ -9178,13 +9178,8 @@ span.recent-post-top-text {
 /* 主页卡片手机端美化 */
 @media screen and (max-width: 768px) {
   #recent-posts>.recent-post-item {
-    border-radius: 0;
-  }
-
-  #recent-posts>.recent-post-item:not(:first-child) {
-    margin: 1.5rem 1rem;
+    margin: .5rem 0.25rem;
     border-radius: 12px;
-    margin-top: 0.5rem;
     border: var(--style-border-always);
     box-shadow: var(--heo-shadow-border);
     display: block;
@@ -14020,6 +14015,7 @@ figure.gallery-group:hover .gallery-group-name::after {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  line-height: 32px;
 }
 
 #footer-wrap {
@@ -16258,7 +16254,7 @@ span.hexo-douban-pagenum {
 /* 即刻短文 */
 .author-content.author-content-item.essayPage {
   height: 10rem;
-  background: url(https://p.zhheo.com/2023e02cff7c3ddef5c06b908fef079fbcfe081902.png!cover) no-repeat center;
+  background: url(/img/bunny.png) no-repeat center;
   background-size: cover;
   color: var(--heo-white);
   overflow: hidden;
@@ -17055,7 +17051,8 @@ img.equipment-item-content-item-image {
 }
 
 div#equipment {
-  margin-top: 26px;
+  /* margin-top: 26px; */
+  margin: 26px 5px;
 }
 
 .equipment-item-content-item-toolbar {

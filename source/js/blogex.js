@@ -314,7 +314,7 @@ function initBlog() {
     heo.categoriesBarActive(),
     initObserver(),
     heo.initThemeColor(),
-    heo.hideLoading(),
+    // heo.hideLoading(),
     heo.tagPageActive(),
     heo.removeBodyPaceClass()
     // heoGPT.aiExplanation(),
@@ -356,27 +356,27 @@ $(".topGroup").hover((function() {}
     document.getElementById("todayCard").style.zIndex = 1
 }
 )),
-document.getElementById("post-comment") && owoBig(),
-"true" == localStorage.getItem("keyboardToggle") ? (document.querySelector("#consoleKeyboard").classList.add("on"),
-heo_keyboard = !0) : (document.querySelector("#consoleKeyboard").classList.remove("on"),
-heo_keyboard = !1),
-addKeyShotListener(),
-$("input").focus((function() {
-    heo_intype = !0
-}
-)),
-$("textarea").focus((function() {
-    heo_intype = !0
-}
-)),
-$("input").focusout((function() {
-    heo_intype = !1
-}
-)),
-$("textarea").focusout((function() {
-    heo_intype = !1
-}
-)),
+// document.getElementById("post-comment") && owoBig(),
+// "true" == localStorage.getItem("keyboardToggle") ? (document.querySelector("#consoleKeyboard").classList.add("on"),
+// heo_keyboard = !0) : (document.querySelector("#consoleKeyboard").classList.remove("on"),
+// heo_keyboard = !1),
+// addKeyShotListener(),
+// $("input").focus((function() {
+//     heo_intype = !0
+// }
+// )),
+// $("textarea").focus((function() {
+//     heo_intype = !0
+// }
+// )),
+// $("input").focusout((function() {
+//     heo_intype = !1
+// }
+// )),
+// $("textarea").focusout((function() {
+//     heo_intype = !1
+// }
+// )),
 // window.onfocus = function() {
 //     document.querySelector("#keyboard-tips").classList.remove("show")
 // }
@@ -384,7 +384,7 @@ $("textarea").focusout((function() {
 document.addEventListener("pjax:click", (function() {
     console.clear(),
     Pace.restart(),
-    heo.showLoading(),
+    // heo.showLoading(),
     $(window).prop("keydown", null).off("keydown")
 }
 ));

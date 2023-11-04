@@ -56,20 +56,13 @@ include ./head/Open_Graph.pug
 //- preconnect 預解析
 each i in theme.preconnect
   link(rel='preconnect' href=`${i}`)
-if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
-  link(rel="preconnect" href="//busuanzi.ibruce.info")
-
-//- 百度验证
-if theme.baidu.enable
-  include ./head/baidu.pug
-//- 51la验证
-if theme.la.enable
-  include ./head/51la.pug
+//- if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
+//-   link(rel="preconnect" href="//busuanzi.ibruce.info")
 
 !=partial('includes/head/config', {}, {cache: true})
 include ./head/config_site.pug
 //- noscript
-noscript. 
+noscript.
   <style type="text/css">
     #nav {
       opacity: 1
@@ -85,8 +78,8 @@ noscript.
   </style>
 link(rel='alternate' href='/rss.xml' title=pageAuthor type='application/atom+xml')
 script(src=url_for(theme.asset.twikoo) async)
-if (theme.snackbar && theme.snackbar.enable)
-  link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")
+//- if (theme.snackbar && theme.snackbar.enable)
+//-   link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")
 link(rel='stylesheet' href=url_for(theme.asset.fancybox_css_v4) media="print" onload="this.media='all'")
 
 //- global config
