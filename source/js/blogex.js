@@ -219,8 +219,11 @@ function percent() {
       , t = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight) - document.documentElement.clientHeight
       , o = Math.round(e / t * 100)
       , n = document.querySelector("#percent");
-    var a = window.scrollY + document.documentElement.clientHeight
-      , i = document.getElementById("post-tools") || document.getElementById("footer");
+      var a = window.scrollY + document.documentElement.clientHeight
+      , i = document.getElementById("footer");
+    //   console.log(o)
+    //   console.log(i.offsetTop + i.offsetHeight / 2 )
+    //   console.log(a)
     i.offsetTop + i.offsetHeight / 2 < a || o > 90 ? (document.querySelector("#nav-totop").classList.add("long"),
     n.innerHTML = "返回顶部") : (document.querySelector("#nav-totop").classList.remove("long"),
     o >= 0 && (n.innerHTML = o)),
