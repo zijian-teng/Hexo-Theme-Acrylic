@@ -12,10 +12,10 @@ hexo.extend.helper.register('getarray_bar', function (types) {
     // categoryArr.sort((a, b) => { return b.value - a.value })
     let strCategoriesBar = ``
     for (let i = 0; i < categories.length; i++) {
-      var pathed_id = categoryArr[i].name.replace(/[+]/g,'').replace(/ /g,'-')
+      var patched_id = categoryArr[i].name.replace(/[+]/g,'').replace(/ /g,'-')
       strTemp=`
-      <div class="category-bar-item" id="${pathed_id}">
-      <a href="/categories/${pathed_id}/">${categoryArr[i].name}</a>
+      <div class="category-bar-item" id="${patched_id}">
+      <a href="/categories/${patched_id}/">${categoryArr[i].name}</a>
       </div>`
       strCategoriesBar+=strTemp
     }
@@ -30,10 +30,10 @@ hexo.extend.helper.register('getarray_bar', function (types) {
     tagArr.sort((a, b) => { return b.value - a.value })
     let strTagsBar = ``
     for (let i = 0; i < tags.length; i++) {
-      var pathed_id = tagArr[i].name.replace(/[+]/g,'').replace(/ /g,'-')
+      var patched_id = tagArr[i].name.replace(/[+]/g,'-').replace(/ /g,'-')
       strTemp=`
-      <div class="category-bar-item" id="${pathed_id}">
-      <a href="/tags/${pathed_id}/">${tagArr[i].name}</a>
+      <div class="category-bar-item" id="${patched_id}">
+      <a href="/tags/${patched_id}/">${tagArr[i].name}</a>
       </div>`
       strTagsBar+=strTemp
     }
