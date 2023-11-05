@@ -53,7 +53,8 @@ if theme.footer.bar.enable
     .footer-bar-left
       #footer-bar-tips
       each i in theme.footer.footer_bottom.right
-        a.footer-bar-link(target='_blank' ,href=`${i.link}` rel='noopener external nofollow noreferrer noopener') #[=i.text]
+        a.footer-bar-link(href=`${i.link}`, data-pjax-state='') #[=i.text]
+        //- a.footer-bar-link(target='_blank' ,href=`${i.link}` rel='noopener external nofollow noreferrer noopener') #[=i.text]
         if theme.footer.footer_bottom.copyright.enable
           - var now = new Date()
           - var nowYear = now.getFullYear()
@@ -65,7 +66,7 @@ if theme.footer.bar.enable
             .copyright!= `&copy;${nowYear} By `
               a(target='_blank',href='/',rel='external nofollow') #[=config.author]
     .footer-bar-right
-      a.footer-bar-link(href='/', data-pjax-state='') Powered by Hexo & Acrylic
+      a.footer-bar-link(target='_blank',href='https://hexo.io',rel='noopener external nofollow noreferrer') Powered by Hexo & Butterfly
       //- a.footer-bar-link(href='/update/' ,data-pjax-state='' ,title="主题") Acrylic
       a.footer-bar-link.cc(href=`${theme.copyright.link}` ,title=`${theme.copyright.short}` ,data-pjax-state='')
         i.fa-regular.fa-copyright

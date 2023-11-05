@@ -696,6 +696,8 @@ a:hover {
 
 .card-info-avatar.is-center {
   flex-direction: column;
+  display: flex;
+  align-items: flex-start
 }
 
 .copy-true {
@@ -1817,12 +1819,12 @@ blockquote footer cite::before {
   }
 }
 
-#aside-content .card-info img {
+/* #aside-content .card-info img {
   width: 110px;
   height: 110px;
   border-radius: 70px;
   transition: all 0.5s ease 0s;
-}
+} */
 
 #aside-content .card-info .author-info__name {
   font-weight: 500;
@@ -5609,7 +5611,8 @@ html {
 #nav-music {
   display: flex;
   align-items: center;
-  z-index: 1001;
+  /* footer is 1002, and will hide music */
+  z-index: 1003;
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -9124,15 +9127,15 @@ span.recent-post-top-text {
   align-items: center;
   transition: all 0.3s ease 0s;
   margin-bottom: 1rem;
+  /* 修复分类、tag页单列显示首个元素无圆角 */
+  overflow: hidden;
+  position: relative;
+  animation: slide-in 0.6s 0.4s backwards;
+  will-change: transform;
 }
 
 #recent-posts>.recent-post-item:not(:first-child) {
-  /* margin-top: 0.5rem; */
-  position: relative;
-  overflow: hidden;
   margin-top: 1rem;
-  animation: slide-in 0.6s 0.4s backwards;
-  will-change: transform;
 }
 
 @media screen and (min-width: 1300px) {
@@ -9178,13 +9181,17 @@ span.recent-post-top-text {
 /* 主页卡片手机端美化 */
 @media screen and (max-width: 768px) {
   #recent-posts>.recent-post-item {
-    margin: .5rem 0.25rem;
+    margin: .5rem 1rem;
     border-radius: 12px;
     border: var(--style-border-always);
     box-shadow: var(--heo-shadow-border);
     display: block;
     position: relative;
     clip-path: inset(0 0 0 0 round 12px);
+  }
+
+  #recent-posts.category_ui>.recent-post-item {
+    margin: .5rem 0.25rem;
   }
 
   #recent-posts .recent-post-item .post_cover {
@@ -9637,20 +9644,6 @@ a.article-meta__categories:hover {
   -webkit-line-clamp: 2;
 }
 
-/* 作者打招呼 */
-div#author-info__sayhi {
-  text-align: left;
-  color: var(--heo-white);
-  background: var(--heo-white-op);
-  font-size: 12px;
-  margin-right: auto;
-  padding: 2px 8px;
-  border-radius: 12px;
-  width: fit-content;
-  cursor: pointer;
-  -webkit-user-select: none;
-  transition: 0.3s;
-}
 
 div#author-info__sayhi:hover {
   background: var(--heo-card-bg);
@@ -9659,12 +9652,11 @@ div#author-info__sayhi:hover {
 
 #aside-content .card-info .author-info__name {
   text-align: left;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--heo-white);
-  font-size: 28px;
-  line-height: 1.1;
-  margin-top: 0.8rem;
-  margin-bottom: 0.4rem;
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 5px
 }
 
 /* 作者卡片背景 */
@@ -9712,7 +9704,7 @@ div#author-info__sayhi:hover {
 
 @media screen and (max-width: 1300px) {
   #aside-content>.card-widget:first-child {
-    min-height: 229px;
+    min-height: 329px;
   }
 }
 
@@ -9852,15 +9844,11 @@ div#author-info__sayhi:hover {
 
 #aside-content .card-info .card-info-social-icons {
   margin: 0;
-  padding-top: 10px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  cursor: pointer;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
+  cursor: pointer
 }
 
 #aside-content .card-info .card-info-social-icons .social-icon {
@@ -11032,11 +11020,12 @@ b, strong {
   font-weight: 400;
 }
 
-#article-container.post-content h1, #article-container.post-content h2, #article-container.post-content h3, #article-container.post-content h4 {
+/* fix h3 code issue */
+/* #article-container.post-content h1, #article-container.post-content h2, #article-container.post-content h3, #article-container.post-content h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; */
 }
 
 #article-container.post-content h1 {
@@ -11295,11 +11284,11 @@ blockquote p {
 
 #article-container .headerlink {
   float: right;
-  opacity: 0.08;
+  opacity: 0.5;
   border-bottom-style: none;
   border-bottom: none;
   position: relative;
-  padding: 0px;
+  padding-right: 10px;
   border: none;
   border-radius: 8px !important;
   line-height: 1;
@@ -13507,7 +13496,7 @@ figure.gallery-group:hover .gallery-group-name::after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 0 -0.75rem;
+  /* margin: 0 -0.75rem; */
   margin-bottom: 0.5rem;
 }
 
@@ -17089,4 +17078,300 @@ svg.icon {
 /* Fuck Bug */
 .post-copyright__type {
   display: flex;
+}
+
+.card-info-avatar.is-center {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start
+}
+
+
+div#author-info__sayhi {
+  text-align: center;
+  width: fit-content;
+  color: var(--heo-white);
+  background: var(--heo-white-op);
+  font-size: 12px;
+  margin-right: auto;
+  padding: 2px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  transition: .3s;
+  margin: auto;
+  min-width: 100px;
+  opacity: 1
+}
+
+div#author-info__sayhi:hover {
+  background: var(--heo-white-op);
+  color: var(--heo-white);
+  transform: scale(1.1)
+}
+
+div#author-info__sayhi:active {
+  transform: scale(.97);
+  opacity: .8
+}
+
+[data-theme=dark] .page div#author-info__sayhi {
+  background: var(--heo-black-op);
+  color: var(--heo-black)
+}
+
+#aside-content .card-info .author-info__name {
+  text-align: left;
+  font-weight: 700;
+  color: var(--heo-white);
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 5px
+}
+
+.page #aside-content .card-info .author-info__name,.page .author-info__desc {
+  color: var(--heo-card-bg)
+}
+
+.author-info__desc {
+  font-size: 12px;
+  color: var(--heo-white);
+  opacity: .6;
+  line-height: 1
+}
+
+.avatar-img-group {
+  width: 118px;
+  height: 118px;
+  min-width: 118px;
+  min-height: 118px;
+  right: calc(50% - 59px);
+  top: 90px;
+  border-radius: 500px;
+  position: absolute;
+  transition: cubic-bezier(.69,.39,0,1.21) .3s;
+  transform-origin: bottom
+}
+
+#aside-content .card-info:hover .avatar-img-group {
+  opacity: 0;
+  transform: scale(0)
+}
+
+.avatar-sticker {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 33px;
+  height: 33px;
+  line-height: 34px;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-out .2s;
+  transform: scale(1);
+  background: var(--heo-white);
+  border-radius: 50%
+}
+
+.page .avatar-sticker {
+  background: var(--heo-card-bg)
+}
+
+.avatar-sticker img {
+  width: 26px;
+  height: 26px
+}
+
+.card-widget:hover .avatar-sticker {
+  opacity: 0;
+  transform: scale(0)
+}
+
+#aside-content>.card-widget:first-child {
+  transition: .3s;
+  border: none;
+  box-shadow: none;
+  background: var(--heo-main);
+  margin-top: 0
+}
+.author-info__description {
+  line-height: 1.38;
+  margin: .3rem 0;
+  text-align: justify;
+  color: var(--heo-white);
+  opacity: 1
+}
+
+.page .author-info__description {
+  color: var(--heo-card-bg)
+}
+
+.author-info__description b {
+  color: var(--heo-white);
+  opacity: 1
+}
+
+.page .author-info__description b {
+  color: var(--heo-card-bg);
+  opacity: 1
+}
+
+.author-info__description_group {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  left: 0;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: .3s
+}
+
+.card-widget:hover .author-info__description_group {
+  opacity: 1
+}
+
+.author-info__description2 {
+  line-height: 1.38;
+  margin: .3rem 0;
+  text-align: justify;
+  width: 100%;
+  z-index: 2;
+  color: rgba(255,255,255,.8)
+}
+
+.author-info__description2 b {
+  color: var(--heo-white)
+}
+
+
+
+#aside-content .card-info .card-info-data {
+  display: none
+}
+
+#aside-content .card-info a img {
+  border-radius: 0;
+  height: 200px;
+  display: inherit;
+  filter: drop-shadow(-5px 14px 8px #00000008);
+  position: absolute;
+  right: -24px;
+  bottom: -82px;
+  width: auto;
+  z-index: 0;
+  transition: cubic-bezier(.48,-.21,0,1.5) .3s
+}
+
+#aside-content .card-info a img:hover {
+  bottom: -42px
+}
+
+[data-theme=light] #aside-content .card-info a img {
+  filter: drop-shadow(-5px 14px 8px #ffffff08)
+}
+
+.card-widget.card-info {
+  padding: 0!important
+}
+#aside-content>div.card-widget.card-info>div.card-content {
+  padding: 1rem 1.2rem;
+  min-height: 320px;
+  height: 320px;
+  position: relative;
+  user-select: none
+}
+
+#aside-content>div.card-widget.card-info>div.card-info-avatarimg {
+  overflow: hidden;
+  background: var(--heo-yellow);
+  transition: 1.5s;
+  min-height: 160px;
+  position: relative;
+  box-shadow: var(--heo-shadow-yellow)
+}
+
+#aside-content>div.card-widget.card-info>div.card-info-avatarimg:hover img {
+  transform: scale(1.03)
+}
+
+#aside-content>div.card-widget.card-info>div>div.card-info-data>div:nth-child()>a>div.headline {
+  font-weight: 700
+}
+
+
+.author-info__bottom-group {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  padding: 1.2rem;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  align-items: center
+}
+
+#aside-content .card-info .card-info-social-icons {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  cursor: pointer
+}
+
+#aside-content .card-info .card-info-social-icons i {
+  background: var(--heo-white-op);
+  color: var(--heo-white);
+  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+#aside-content .card-info .card-info-social-icons i:hover {
+  background: var(--heo-white-op);
+  transform: scale(1.1);
+  color: var(--heo-white);
+  box-shadow: none
+}
+
+[data-theme=dark] .page #aside-content .card-info .card-info-social-icons i {
+  background: var(--heo-black-op);
+  color: var(--heo-card-bg)
+}
+
+#aside-content .card-info .card-info-data>.card-info-data-item:hover {
+  background: var(--heo-post-blockquote-bg);
+  transform: scale(.97)
+}
+
+#aside-content>div.card-widget.card-info>div.card-content>div.card-info-data>.card-info-data-item:hover>a>div.headline,#aside-content>div.card-widget.card-info>div.card-content>div.card-info-data>.card-info-data-item:hover>a>div.length-num {
+  color: var(--heo-blue)
+}
+
+#aside-content .card-info .avatar-img {
+  width: 118px;
+  height: 118px;
+  right: 0;
+  top: 0;
+  border-radius: 500px;
+  position: absolute;
+  opacity: 1;
+  transition: .3s;
+  border: 5px solid var(--heo-white);
+  overflow: hidden
+}
+
+.page #aside-content .card-info .avatar-img {
+  border-color: var(--heo-card-bg)
+}
+
+.author-info__top-group {
+  display: flex;
+  height: 28px;
+  width: 100%
 }

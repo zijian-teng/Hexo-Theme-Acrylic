@@ -18,9 +18,9 @@ mixin postUI(posts)
               each item, index in article.categories.data
                 span.original #[=item.name]
             if firstpost != 1
-              span.lastestpost 最新
+              //- span.lastestpost 最新
               - var firstpost = 1
-            a.unvisited-post(href=url_for(link) title=`${title}` data-pjax-state) 未读
+            //- a.unvisited-post(href=url_for(link) title=`${title}` data-pjax-state) 未读
           a.article-title(href=url_for(link) title=title)= title
         .article-meta-wrap
           if (is_home() && (article.top || article.sticky > 0))
