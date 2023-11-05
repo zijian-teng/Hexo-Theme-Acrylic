@@ -5602,11 +5602,11 @@ html {
 }
 
 /* 导航栏音乐 */
-@media screen and (max-width: 1300px) {
+/* @media screen and (max-width: 1300px) {
   #nav-music {
     display: none !important;
   }
-}
+} */
 
 #nav-music {
   display: flex;
