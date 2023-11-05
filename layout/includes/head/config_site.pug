@@ -4,14 +4,14 @@
   let isHighlightShrink = false
 
   var showToc = false
-  //- if (theme.aside.enable && page.aside !== false) {
-  //-   let tocEnable = false
-  //-   if (is_post()) {
-  //-     tocEnable = true
-  //-   }
-  //-   const pageToc = page.toc === true || page.toc === false ? page.toc : tocEnable
-  //-   showToc = pageToc && (toc(page.content) !== '' || page.encrypt == true )
-  //- }
+  if (theme.aside.enable && page.aside !== false) {
+    let tocEnable = false
+    if (is_post()) {
+      tocEnable = true
+    }
+    const pageToc = page.toc === true || page.toc === false ? page.toc : tocEnable
+    showToc = pageToc && (toc(page.content) !== '' || page.encrypt == true )
+  }
 
   let Tcolor_mode = 'undefined';
   let Tcolor = 'undefined';
