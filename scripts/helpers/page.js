@@ -83,7 +83,11 @@ hexo.extend.helper.register('pagecloud', function (options = {}) {
   })
 
   source.forEach(tag => {
-    result += `<a href="${env.url_for(tag.path)}" id="${tag.name}"><span class="tags-punctuation"></span> ${tag.name} <span class="tagsPageCount">${tag.length}</span></a>`
+    // 当前 tag/分类 无法高亮。
+    // ${env.url_for(tag.path)}: /tags/C-CoreGuidelines/
+    // ${tag.name}: C++CoreGuidelines
+
+    result += `<a href="${env.url_for(tag.path)}" id="${tag.name}" data-url=""><span class="tags-punctuation"></span> ${tag.name} <span class="tagsPageCount">${tag.length}</span></a>`
   })
   return result
 })

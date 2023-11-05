@@ -37,10 +37,10 @@ var heo = {
     },
     tagPageActive: function() {
         var e = window.location.pathname;
-        if (/\/tags\/.*?\//.test(e = decodeURIComponent(e))) {
-            var t = e.split("/")[2];
+        if (/\/tags\/.*?\//.test(e)) {
+            // fix active tag issue
             document.querySelector("#tag-page-tags") && ($("a").removeClass("select"),
-            document.getElementById(t).classList.add("select"))
+            document.querySelectorAll("[data-url='" + e + "']")[0].classList.add("select"))
         }
     },
     categoriesBarActive: function() {
