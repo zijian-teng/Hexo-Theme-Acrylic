@@ -29,8 +29,10 @@ div
     != partial("includes/loading/loading-js", {}, { cache: true })
 
   .js-pjax
-    if is_post()
-      script(src=url_for(theme.asset.themecolor_js))
+    //- this will cause
+    //- Uncaught SyntaxError: Unexpected token '<' (at (index):1:1)
+    //- if is_post()
+    //-   script(src=url_for(theme.asset.themecolor_js))
 
     //- TianliGPT
     //- include ./post/ai-info.pug
