@@ -87,7 +87,7 @@ hexo.extend.helper.register('pagecloud', function (options = {}) {
     // ${env.url_for(tag.path)}: /tags/C-CoreGuidelines/
     // ${tag.name}: C++CoreGuidelines
 
-    result += `<a href="${env.url_for(tag.path)}" id="${tag.name}" data-url=""><span class="tags-punctuation"></span> ${tag.name} <span class="tagsPageCount">${tag.length}</span></a>`
+    result += `<a href="${env.url_for(tag.path)}" id="${tag.name}" data-url="${env.url_for(tag.path)}"><span class="tags-punctuation"></span> ${tag.name} <span class="tagsPageCount">${tag.length}</span></a>`
   })
   return result
 })
