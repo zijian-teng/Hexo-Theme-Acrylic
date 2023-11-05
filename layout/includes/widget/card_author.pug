@@ -1,14 +1,24 @@
 .card-widget.card-info
   .card-content
     .card-info-avatar.is-center
-      #author-info__sayhi.author-info__sayhi
-      .author-info__name= 'Zijian'
-      .author-info__description!= theme.aside.card_author.description || config.description
-  .banner-button-group
-    a.banner-button(onclick=`pjax.loadUrl(${theme.aside.card_author.button.link})` data-pjax-state='')
-      i(class=theme.aside.card_author.button.icon)
-      span.banner-button-text #[=theme.aside.card_author.button.text]
-  .card-info-social-icons.is-center
-    each i in theme.aside.card_author.social
-      a.social-icon(href=`${i.link}` rel='external nofollow' target='_blank' title=`${i.title}`)
-        i(class=`${i.icon}`)
+      .author-info__top-group
+        .author-info__sayhi#author-info__sayhi(onclick="heo.changeSayHelloText()")
+    .avatar-img-group
+      .avatar-img#lottie_avatar
+        img(src=url_for(theme.avatar.img))
+      .avatar-sticker
+        img.avatar-sticker-img.entered.loading(src=url_for(theme.author_status.statusImg) ait="status")
+
+    .author-info__description_group
+      .author-info__description= '这有关于产品、设计、开发相关的问题和看法，还有文章翻译和分享。'
+      .author-info__description= '相信你可以在这里找到对你有用的知识和教程。'
+
+    .author-info__bottom-group
+      a.author-info__bottom-group-left(href=url_for('/about'))
+        .author-info__name='Zijian'
+        .author-info__desc='好记性如烂笔头'
+
+      .card-info-social-icons.is-center
+        each i in theme.aside.card_author.social
+          a.social-icon(href=`${i.link}` rel='external nofollow' target='_blank' title=`${i.title}`)
+            i(class=`${i.icon}`)
