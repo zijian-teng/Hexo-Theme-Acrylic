@@ -4,7 +4,7 @@ hexo.extend.helper.register('catalog_list', function (type) {
     var patched_id = item.name.replace(/[+]/g,'').replace(/ /g,'-')
     html += `
     <div class="category-bar-item" id="${patched_id}">
-      <a href="/${item.path}" data-pjax-state>${item.name}</a>
+      <a href="/${item.path}">${item.name}</a>
     </div>
     `
   })
