@@ -305,7 +305,7 @@ var heo = {
         }
     },
     changeSayHelloText: function() {
-        const e = ["♎️ 天秤座", "💻 C++ 程序员", "🚗 汽车嵌入式软件工程师", "🎵 喜欢听八九十年代的老歌", "🚴‍♀️ 喜欢骑行", "📷 喜欢摄影"]
+        const e = ["♎️ 90 后，天秤座", "💻 C++ 程序员", "🚗 汽车嵌入式软件工程师", "🎵 喜欢听八九十年代的老歌", "🚴‍♀️ 喜欢骑行", "📷 喜欢摄影", "😎 年会中过 iPhone", "💥 东南大学 CF 战队 ACE", "💥 西南交大 CF 战队 MVP", "🎴 炉石竞技场 12 胜", "🤫 学过两年二胡"]
           , t = document.getElementById("author-info__sayhi");
         let o = e[Math.floor(Math.random() * e.length)];
         for (; o === lastSayHello; )
