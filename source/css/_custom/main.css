@@ -16295,9 +16295,9 @@ span.hexo-douban-pagenum {
     margin: 0;
   }
 
-  #consoleMusic {
+  /* #consoleMusic {
     display: none;
-  }
+  } */
 
   #consoleCommentBarrage {
     display: none;
@@ -16309,9 +16309,9 @@ span.hexo-douban-pagenum {
     display: none;
   }
 
-  #consoleHideAside {
+  /* #consoleHideAside {
     display: none;
-  }
+  } */
 }
 
 @media screen and (max-height: 500px) {
