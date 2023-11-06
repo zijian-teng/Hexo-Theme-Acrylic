@@ -53,7 +53,7 @@ if theme.footer.bar.enable
     .footer-bar-left
       #footer-bar-tips
       each i in theme.footer.footer_bottom.right
-        a.footer-bar-link(href=`${i.link}`, data-pjax-state='') #[=i.text]
+        a.footer-bar-link(href=`${i.link}`) #[=i.text]
         //- a.footer-bar-link(target='_blank' ,href=`${i.link}` rel='noopener external nofollow noreferrer noopener') #[=i.text]
         if theme.footer.footer_bottom.copyright.enable
           - var now = new Date()
