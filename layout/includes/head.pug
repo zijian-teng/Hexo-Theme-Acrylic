@@ -76,11 +76,11 @@ noscript.
       display: inline !important
     }
   </style>
-link(rel='alternate' href='/rss.xml' title=pageAuthor type='application/atom+xml')
-script(src=url_for(theme.asset.twikoo) async)
+//- link(rel='alternate' href='/rss.xml' title=pageAuthor type='application/atom+xml')
+//- script(src=url_for(theme.asset.twikoo) async)
 //- if (theme.snackbar && theme.snackbar.enable)
 //-   link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")
-link(rel='stylesheet' href=url_for(theme.asset.fancybox_css_v4) media="print" onload="this.media='all'")
+//- link(rel='stylesheet' href=url_for(theme.asset.fancybox_css_v4) media="print" onload="this.media='all'")
 
 //- global config
 !=fragment_cache('injectHeadJs', function(){return inject_head_js()})
