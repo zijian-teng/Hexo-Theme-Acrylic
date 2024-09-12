@@ -29,17 +29,17 @@ function randomCover () {
   let cover
   let num
 
-  if (theme.cover && theme.cover.default_cover) {
-    if (!Array.isArray(theme.cover.default_cover)) {
-      cover = theme.cover.default_cover
+  if (theme.cover && theme.default_img) {
+    if (!Array.isArray(theme.default_img)) {
+      cover = theme.default_img
       return cover
     } else {
-      num = Math.floor(Math.random() * theme.cover.default_cover.length)
-      cover = theme.cover.default_cover[num]
+      num = Math.floor(Math.random() * theme.default_img.length)
+      cover = theme.default_img[num]
       return cover
     }
   } else {
-    cover = theme.default_top_img || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+    cover = theme.default_img || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
     return cover
   }
 }

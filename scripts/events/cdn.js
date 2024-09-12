@@ -34,11 +34,11 @@ hexo.extend.filter.register('before_generate', () => {
       file: 'js/blogex.js',
       version
     },
-    translate: {
-      name: 'hexo-theme-acrylic',
-      file: 'js/tw_cn.js',
-      version
-    },
+    // translate: {
+    //   name: 'hexo-theme-acrylic',
+    //   file: 'js/tw_cn.js',
+    //   version
+    // },
     local_search: {
       name: 'hexo-theme-acrylic',
       file: 'js/search/local-search.js',
@@ -63,7 +63,8 @@ hexo.extend.filter.register('before_generate', () => {
       name: 'hexo-theme-acrylic',
       file: 'js/rightmenu.js',
       version
-    },
+    }
+    /* ,
     tianli_gpt_js: {
       name: 'hexo-theme-acrylic',
       file: 'js/tianli_gpt.js',
@@ -73,7 +74,7 @@ hexo.extend.filter.register('before_generate', () => {
       name: 'hexo-theme-acrylic',
       file: 'js/themecolor.js',
       version
-    }
+    } */
   }
 
   const minFile = (file) => {
@@ -113,7 +114,7 @@ hexo.extend.filter.register('before_generate', () => {
         cdnjs: `https://cdnjs.cloudflare.com/ajax/libs/${cdnjs_name}/${version}/${min_cdnjs_file}`,
         custom: (CDN.custom_format || '').replace(/\$\{(.+?)\}/g, (match, $1) => value[$1])
       }
-      
+
       data[key] = cdnSource[type]
     })
 

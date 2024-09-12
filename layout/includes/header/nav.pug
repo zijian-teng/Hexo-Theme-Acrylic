@@ -14,13 +14,16 @@ nav#nav.show
                       if i.class == "in"
                         a.back-menu-item(href=`${i.link}` rel='external nofollow' title=`${i.text}` target='_blank')
                           img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
+                          //- i.fas.fa-earth-asia(style='font-size:.8rem')
                           span.back-menu-item-text=i.text
                       else if i.class == "out"
                         a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
+                          //- i.fas.fa-earth-asia(style='font-size:.8rem')
                           img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
                           span.back-menu-item-text=i.text
-                      else 
+                      else
                         a.back-menu-item(href=`${i.link}` title=`${i.text}` target='_blank')
+                          //- i.fas.fa-earth-asia(style='font-size:.8rem')
                           img.back-menu-item-icon.entered.loading(src=`${i.img}` data-ll-status='loading')
                           span.back-menu-item-text=i.text
       if nav.logo.enable
@@ -37,12 +40,6 @@ nav#nav.show
           span #[=config.title]
     #menus
       !=partial('includes/header/menu_item', {}, {cache: true})
-    #nav-left
-      if nav.fps_enable
-        script(src="/js/fps.js") 
-        #fps-group.show
-          #fps
-          span.fpsText FPS
     #nav-right
       if nav.right_button.travelling.enable
         .nav-button.only-home#travellings_button

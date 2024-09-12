@@ -37,10 +37,10 @@ var heo = {
     },
     tagPageActive: function() {
         var e = window.location.pathname;
-        if (/\/tags\/.*?\//.test(e = decodeURIComponent(e))) {
-            var t = e.split("/")[2];
+        if (/\/tags\/.*?\//.test(e)) {
+            // fix active tag issue
             document.querySelector("#tag-page-tags") && ($("a").removeClass("select"),
-            document.getElementById(t).classList.add("select"))
+            document.querySelectorAll("[data-url='" + e + "']")[0].classList.add("select"))
         }
     },
     categoriesBarActive: function() {
@@ -50,40 +50,40 @@ var heo = {
             document.querySelector("#category-bar") && document.getElementById("category-bar-home").classList.add("select");
         else {
             if (/\/categories\/.*?\//.test(e)) {
-                var t = e.split("/")[2];
+                var t = e.split("/").slice(-2)[0];
                 document.querySelector("#category-bar") && document.getElementById(t).classList.add("select")
             }
         }
     },
-    addFriendLinksInFooter: function() {
-        fetch("/zhheo/friendlink.json").then((e=>e.json())).then((e=>{
-            var t = []
-              , o = -1;
-            for (a=1;a<5;a++) {
-                const i = e.link_list;
-                for (let n = 0; n < Math.min(i.length, 1); n++) {
-                    let n = Math.floor(Math.random() * i.length);
-                    for (; n === o && i.length > 1; )
-                        n = Math.floor(Math.random() * i.length);
-                    o = n,
-                    t.push({
-                        name: i[n].name,
-                        link: i[n].link
-                    }),
-                    i.splice(n, 1)
-                }
-            }
-            t.pop();
-            var n = "";
-            for (let e = 0; e < t.length; ++e) {
-                var a = t[e];
-                n += `<a class='footer-item' href='${a.link}'  target="_blank" rel="noopener nofollow">${a.name}</a>`
-            }
-            n += "<a class='footer-item' href='/link/'>更多</a>",
-            document.getElementById("friend-links-in-footer").innerHTML = n
-        }
-        ))
-    },
+    // addFriendLinksInFooter: function() {
+    //     fetch("/zhheo/friendlink.json").then((e=>e.json())).then((e=>{
+    //         var t = []
+    //           , o = -1;
+    //         for (a=1;a<5;a++) {
+    //             const i = e.link_list;
+    //             for (let n = 0; n < Math.min(i.length, 1); n++) {
+    //                 let n = Math.floor(Math.random() * i.length);
+    //                 for (; n === o && i.length > 1; )
+    //                     n = Math.floor(Math.random() * i.length);
+    //                 o = n,
+    //                 t.push({
+    //                     name: i[n].name,
+    //                     link: i[n].link
+    //                 }),
+    //                 i.splice(n, 1)
+    //             }
+    //         }
+    //         t.pop();
+    //         var n = "";
+    //         for (let e = 0; e < t.length; ++e) {
+    //             var a = t[e];
+    //             n += `<a class='footer-item' href='${a.link}'  target="_blank" rel="noopener nofollow">${a.name}</a>`
+    //         }
+    //         n += "<a class='footer-item' href='/link/'>更多</a>",
+    //         document.getElementById("friend-links-in-footer").innerHTML = n
+    //     }
+    //     ))
+    // },
     stopImgRightDrag: function() {
         $("img").on("dragstart", (function() {
             return !1
@@ -101,7 +101,7 @@ var heo = {
         }
     },
     sayhi: function() {
-        document.querySelector("#author-info__sayhi") && (document.getElementById("author-info__sayhi").innerHTML = getTimeState() + "！我是")
+        document.querySelector("#author-info__sayhi") && (document.getElementById("author-info__sayhi").innerHTML = "👋 Hello, I'm Zijian!")
     },
     addTag: function() {
         document.querySelector(".heo-tag-new") && $(".heo-tag-new").append('<sup class="heo-tag heo-tag-new-view">N</sup>'),
@@ -170,16 +170,16 @@ var heo = {
         localStorage.removeItem("commentBarrageSwitch"))),
         rm.hideRightMenu()
     },
-    hidecookie: function() {
-        heo_cookiesTime = setTimeout((()=>{
-            document.getElementById("cookies-window").classList.add("cw-hide"),
-            setTimeout((()=>{
-                $("#cookies-window").hide()
-            }
-            ), 1e3)
-        }
-        ), 3e3)
-    },
+    // hidecookie: function() {
+    //     heo_cookiesTime = setTimeout((()=>{
+    //         document.getElementById("cookies-window").classList.add("cw-hide"),
+    //         setTimeout((()=>{
+    //             $("#cookies-window").hide()
+    //         }
+    //         ), 1e3)
+    //     }
+    //     ), 3e3)
+    // },
     hideTodayCard: function() {
         document.getElementById("todayCard") && document.getElementById("todayCard").classList.add("hide")
     },
@@ -213,15 +213,15 @@ var heo = {
         }
         ))
     },
-    showLoading: function() {
-        document.querySelector("#loading-box").classList.remove("loaded");
-        let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
-        heo.changeThemeColor(e)
-    },
-    hideLoading: function() {
-        document.querySelector("#loading-box").classList.add("loaded")
-        // heoGPT.aiExplanation()
-    },
+    // showLoading: function() {
+    //     document.querySelector("#loading-box").classList.remove("loaded");
+    //     let e = getComputedStyle(document.documentElement).getPropertyValue("--heo-card-bg");
+    //     heo.changeThemeColor(e)
+    // },
+    // hideLoading: function() {
+    //     document.querySelector("#loading-box").classList.add("loaded")
+    //     // heoGPT.aiExplanation()
+    // },
     musicToggle: function() {
         heo_musicPlaying ? (document.querySelector("#nav-music").classList.remove("playing"),
         document.getElementById("menu-music-toggle").innerHTML = '<i class="heofont icon-play-fill"></i><span>播放音乐</span>',
@@ -305,7 +305,7 @@ var heo = {
         }
     },
     changeSayHelloText: function() {
-        const e = ["🤖️ 数码科技爱好者", "🔍 分享与热心帮助", "🏠 智能家居小能手", "🔨 设计开发一条龙", "🤝 专修交互与设计", "🏃 脚踏实地行动派", "🧱 团队小组发动机", "💢 壮汉人狠话不多"]
+        const e = ["♎️ 90 后，天秤座", "💻 C++ 程序员", "🚗 汽车嵌入式软件工程师", "🎵 喜欢听八九十年代的老歌", "🚴‍♀️ 喜欢骑行", "📷 喜欢摄影", "😎 年会中过 iPhone", "💥 东南大学 CF 战队 ACE", "💥 西南交大 CF 战队 MVP", "🎴 炉石竞技场 12 胜", "🤫 学过两年二胡"]
           , t = document.getElementById("author-info__sayhi");
         let o = e[Math.floor(Math.random() * e.length)];
         for (; o === lastSayHello; )
@@ -358,23 +358,23 @@ var heo = {
         t.focus(),
         t.setSelectionRange(-1, -1)
     },
-    addPowerLinksInPostRightSide: async function() {
-        const e = document.getElementById("power-star-image")
-          , t = document.getElementById("power-star")
-          , o = document.getElementById("power-star-title")
-          , n = document.getElementById("power-star-desc");
-        if (t && e && o && n)
-            try {
-                const a = await fetch("/zhheo/powerlink.json")
-                  , l = await a.json()
-                  , i = heo.getRandomInt(0, l[0].link_list.length)
-                  , c = l[0].link_list[i];
-                e.style.backgroundImage = `url(${c.avatar})`,
-                t.href = c.link,
-                o.innerText = c.name,
-                n.innerText = c.descr
-            } catch (e) {}
-    },
+    // addPowerLinksInPostRightSide: async function() {
+    //     const e = document.getElementById("power-star-image")
+    //       , t = document.getElementById("power-star")
+    //       , o = document.getElementById("power-star-title")
+    //       , n = document.getElementById("power-star-desc");
+    //     if (t && e && o && n)
+    //         try {
+    //             const a = await fetch("/zhheo/powerlink.json")
+    //               , l = await a.json()
+    //               , i = heo.getRandomInt(0, l[0].link_list.length)
+    //               , c = l[0].link_list[i];
+    //             e.style.backgroundImage = `url(${c.avatar})`,
+    //             t.href = c.link,
+    //             o.innerText = c.name,
+    //             n.innerText = c.descr
+    //         } catch (e) {}
+    // },
     getRandomInt: function(e, t) {
         return Math.floor(Math.random() * (t - e)) + e
     },

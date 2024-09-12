@@ -219,8 +219,11 @@ function percent() {
       , t = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight) - document.documentElement.clientHeight
       , o = Math.round(e / t * 100)
       , n = document.querySelector("#percent");
-    var a = window.scrollY + document.documentElement.clientHeight
-      , i = document.getElementById("post-tools") || document.getElementById("footer");
+      var a = window.scrollY + document.documentElement.clientHeight
+      , i = document.getElementById("footer");
+    //   console.log(o)
+    //   console.log(i.offsetTop + i.offsetHeight / 2 )
+    //   console.log(a)
     i.offsetTop + i.offsetHeight / 2 < a || o > 90 ? (document.querySelector("#nav-totop").classList.add("long"),
     n.innerHTML = "返回顶部") : (document.querySelector("#nav-totop").classList.remove("long"),
     o >= 0 && (n.innerHTML = o)),
@@ -301,10 +304,10 @@ function initBlog() {
     heo.sayhi(),
     heo.addTag(),
     heo.stopImgRightDrag(),
-    heo.addFriendLinksInFooter(),
-    heo.addPowerLinksInPostRightSide(),
+    // heo.addFriendLinksInFooter(),
+    // heo.addPowerLinksInPostRightSide(),
     heo.qrcodeCreate(),
-    heo.hidecookie(),
+    // heo.hidecookie(),
     heo.onlyHome(),
     heo.addNavBackgroundInit(),
     heo.initIndexEssay(),
@@ -314,7 +317,7 @@ function initBlog() {
     heo.categoriesBarActive(),
     initObserver(),
     heo.initThemeColor(),
-    heo.hideLoading(),
+    // heo.hideLoading(),
     heo.tagPageActive(),
     heo.removeBodyPaceClass()
     // heoGPT.aiExplanation(),
@@ -356,35 +359,35 @@ $(".topGroup").hover((function() {}
     document.getElementById("todayCard").style.zIndex = 1
 }
 )),
-document.getElementById("post-comment") && owoBig(),
-"true" == localStorage.getItem("keyboardToggle") ? (document.querySelector("#consoleKeyboard").classList.add("on"),
-heo_keyboard = !0) : (document.querySelector("#consoleKeyboard").classList.remove("on"),
-heo_keyboard = !1),
-addKeyShotListener(),
-$("input").focus((function() {
-    heo_intype = !0
-}
-)),
-$("textarea").focus((function() {
-    heo_intype = !0
-}
-)),
-$("input").focusout((function() {
-    heo_intype = !1
-}
-)),
-$("textarea").focusout((function() {
-    heo_intype = !1
-}
-)),
-window.onfocus = function() {
-    document.querySelector("#keyboard-tips").classList.remove("show")
-}
-,
+// document.getElementById("post-comment") && owoBig(),
+// "true" == localStorage.getItem("keyboardToggle") ? (document.querySelector("#consoleKeyboard").classList.add("on"),
+// heo_keyboard = !0) : (document.querySelector("#consoleKeyboard").classList.remove("on"),
+// heo_keyboard = !1),
+// addKeyShotListener(),
+// $("input").focus((function() {
+//     heo_intype = !0
+// }
+// )),
+// $("textarea").focus((function() {
+//     heo_intype = !0
+// }
+// )),
+// $("input").focusout((function() {
+//     heo_intype = !1
+// }
+// )),
+// $("textarea").focusout((function() {
+//     heo_intype = !1
+// }
+// )),
+// window.onfocus = function() {
+//     document.querySelector("#keyboard-tips").classList.remove("show")
+// }
+// ,
 document.addEventListener("pjax:click", (function() {
     console.clear(),
     Pace.restart(),
-    heo.showLoading(),
+    // heo.showLoading(),
     $(window).prop("keydown", null).off("keydown")
 }
 ));

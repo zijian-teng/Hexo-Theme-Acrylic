@@ -1,14 +1,27 @@
 .card-widget.card-info
   .card-content
     .card-info-avatar.is-center
-      #author-info__sayhi.author-info__sayhi
-      .author-info__name= config.author
-      .author-info__description!= theme.aside.card_author.description || config.description
-  .banner-button-group
-    a.banner-button(onclick=`pjax.loadUrl(${theme.aside.card_author.button.link})` data-pjax-state='')
-      i(class=theme.aside.card_author.button.icon)
-      span.banner-button-text #[=theme.aside.card_author.button.text]
-  .card-info-social-icons.is-center
-    each i in theme.aside.card_author.social
-      a.social-icon(href=`${i.link}` rel='external nofollow' target='_blank' title=`${i.title}`)
-        i(class=`${i.icon}`)
+      .author-info__top-group
+        .author-info__sayhi#author-info__sayhi(onclick="heo.changeSayHelloText()")
+    .avatar-img-group
+      .avatar-img#lottie_avatar
+        img(src=url_for(theme.avatar.img))
+      .avatar-sticker
+        //- span.avatar-sticker-img.entered.loading(style='font-size:1.2rem')='🇨🇳'
+        img.avatar-sticker-img.entered.loading(src=url_for(theme.author_status.statusImg) ait="status")
+
+    .author-info__description_group
+      .author-info__description= '有一个绘画筑起的城堡'
+      .author-info__description= '城堡里藏着单纯安静'
+      .author-info__description= '藏着一群人的生活和梦想'
+      .author-info__description= '——『苹果树下』'
+
+    .author-info__bottom-group
+      a.author-info__bottom-group-left(href=url_for('/about'))
+        .author-info__name='Zijian'
+        .author-info__desc='好记性如烂笔头'
+
+      .card-info-social-icons.is-center
+        each i in theme.aside.card_author.social
+          a.social-icon(href=`${i.link}` rel='external nofollow' target='_blank' title=`${i.title}`)
+            i(class=`${i.icon}`)

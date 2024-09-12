@@ -17,21 +17,21 @@ mixin rightsideItem(array)
         if showToc
           button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))
             i.fas.fa-list-ul
-      when 'chat'
-        if chat_btn
-          button#chat_btn(type="button" title=_p("rightside.chat"))
-            i.fas.fa-sms
-      when 'comment'
-        if commentsJsLoad
-          a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
-            i.fas.fa-comments
+      //- when 'chat'
+      //-   if chat_btn
+      //-     button#chat_btn(type="button" title=_p("rightside.chat"))
+      //-       i.fas.fa-sms
+      //- when 'comment'
+      //-   if commentsJsLoad
+      //-     a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
+      //-       i.fas.fa-comments
 
 #rightside(style="opacity: 1; transform: translateX(-38px);")
   - const { enable, hide, show } = theme.rightside_item_order
   - const hideArray = enable ? hide && hide.split(',') : ['translate','darkmode','hideAside']
   - const showArray = enable ? show && show.split(',') : ['toc','chat','comment']
 
-  
+
   #rightside-config-hide
     if hideArray
       +rightsideItem(hideArray)

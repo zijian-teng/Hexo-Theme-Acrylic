@@ -13,11 +13,11 @@
     .author-content-item.myInfoAndSayHello
       .title1 你好，很高兴认识你👋
       .title2
-        | 我叫 
+        | 我叫
         span.inline-word= config.author
       .title1
-        | 是一名 
-        span.inline-word=theme.about.job 
+        | 是一名
+        span.inline-word=theme.about.job
     .aboutsiteTips.author-content-item
       .author-content-item-tips 追求
       h2
@@ -39,28 +39,28 @@
       .card-content
         .author-content-item-tips 技能
         span.author-content-item-title 开启创造力
-        .skills-style-group
-          .tags-group-all
-            .tags-group-wrapper
-              each i in site.data.creativity
-                - const evenNum = i.creativity_list.filter((x, index) => index % 2 === 0);
-                - const oddNum = i.creativity_list.filter((x, index) => index % 2 === 1);
-                each item, index in i.creativity_list
-                  if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
-                    .tags-group-icon-pair
-                      .tags-group-icon(style=`background: ${evenNum[index].color}`)
-                        img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon)
-                      .tags-group-icon(style=`background: ${oddNum[index].color}`)
-                        img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon)
-          .skills-list
-            each i in site.data.creativity
-              each item, index in i.creativity_list
-                .skill-info
-                  .skill-icon(style=`background: ${item.color}`)
-                    img.no-lightbox(title=item.name, src=item.icon)
-                  .skill-name
-                    span=item.name
-            .etc ...
+        //- .skills-style-group
+        //-   .tags-group-all
+        //-     .tags-group-wrapper
+        //-       each i in site.data.creativity
+        //-         - const evenNum = i.creativity_list.filter((x, index) => index % 2 === 0);
+        //-         - const oddNum = i.creativity_list.filter((x, index) => index % 2 === 1);
+        //-         each item, index in i.creativity_list
+        //-           if ((index+1 <= evenNum.length) && (index+1 <= oddNum.length))
+        //-             .tags-group-icon-pair
+        //-               .tags-group-icon(style=`background: ${evenNum[index].color}`)
+        //-                 img.no-lightbox(title=evenNum[index].name, src=evenNum[index].icon)
+        //-               .tags-group-icon(style=`background: ${oddNum[index].color}`)
+        //-                 img.no-lightbox(title=oddNum[index].name, src=oddNum[index].icon)
+        //-   .skills-list
+        //-     each i in site.data.creativity
+        //-       each item, index in i.creativity_list
+        //-         .skill-info
+        //-           .skill-icon(style=`background: ${item.color}`)
+        //-             img.no-lightbox(title=item.name, src=item.icon)
+        //-           .skill-name
+        //-             span=item.name
+        //-     .etc ...
     .author-content-item.careers
       .card-content
         .author-content-item-tips 生涯
@@ -191,22 +191,22 @@
       .author-content-item-tips 致谢
       span.author-content-item-title 赞赏名单
       .author-content-item-description 感谢因为有你们，让我更加有创作的动力。
-        each i in site.data.reward
-          - let rawData = [...i.reward_list]
-          .reward-list-all
-            - let reward_list_amount = i.reward_list.sort((a,b)=>b.amount -  a.amount)
-            each item, index in reward_list_amount
-              .reward-list-item
-                .reward-list-item-name=item.name
-                .reward-list-bottom-group
-                  if item.amount >= 50
-                    .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
-                  else
-                    .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
-                  .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
-          .reward-list-updateDate
-            | 最新更新时间：
-            time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
+        //- each i in site.data.reward
+        //-   - let rawData = [...i.reward_list]
+        //-   .reward-list-all
+        //-     - let reward_list_amount = i.reward_list.sort((a,b)=>b.amount -  a.amount)
+        //-     each item, index in reward_list_amount
+        //-       .reward-list-item
+        //-         .reward-list-item-name=item.name
+        //-         .reward-list-bottom-group
+        //-           if item.amount >= 50
+        //-             .reward-list-item-money(style='background:var(--anzhiyu-yellow)')=`¥${item.amount}`
+        //-           else
+        //-             .reward-list-item-money=`¥${item.amount + (item.suffix ? item.suffix : "")}`
+        //-           .datatime.reward-list-item-time(datatime=item.datatime)=new Date(item.datatime).toISOString().slice(0, -14)
+        //-   .reward-list-updateDate
+        //-     | 最新更新时间：
+        //-     time.datatime.reward-list-updateDate-time(datatime=rawData[0].datatime)=new Date(rawData[0].datatime).toISOString().slice(0, -14)
 
 script(src=url_for(theme.CDN.option.countup_js))
 script.
